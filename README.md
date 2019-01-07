@@ -5,4 +5,4 @@ Quite easy website:
   * Charts
   * Agenda
   * Mail
-  * Credits
+  * Contacts
