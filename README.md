@@ -6,3 +6,7 @@ Quite easy website:
   * Agenda
   * Mail
   * Contacts
+It has been done with Bootstrap, so there are three versions:
+* Mobile
+* Tablet
+* Desktop
