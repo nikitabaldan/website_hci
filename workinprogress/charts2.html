@@ -113,47 +113,15 @@
                       <div class="col-md-12">
                       </div>
                       <div class="container">
-                          <h2>Individual charts</h2>
+                          <h2>Comparison between stations</h2>
                           <ul class="nav nav-tabs">
-                            <li class="active" >
-                            <a id="tab1" data-toggle="tab" href="#chart1">Doughnut chart</a></li>
-                            <li><a data-toggle="tab" id="tab2" href="#chart2">Pie chart</a></li>
-                            <li><a data-toggle="tab" id="tab3" href="#chart3">Polar Area chart</a></li>
-                            <li><a data-toggle="tab" id="tab4" href="#chart4">Line Chart</a></li>
+                            <li class="active"><a data-toggle="tab" id="tab4" href="#chart4">Line Chart</a></li>
                             <li><a data-toggle="tab" id="tab5" href="#chart5">Bar chart</a></li>
                             <li><a data-toggle="tab" id="tab6" href="#chart6">Radar chart</a></li>
                           </ul>
                         
                           <div class="tab-content">
-                            <div id="chart1" class="tab-pane fade in active">
-                              <h3>Doughnut</h3>
-                              <div class="panel">
-                                <div class="panel-body">
-                                  <center>
-                                  <canvas class="doughnut-chart"></canvas>
-                                  </center>
-                                </div>
-                              </div>
-                            </div>  
-                            <div id="chart2" class="tab-pane fade">
-                                <h3>Pie</h3>
-                                <div class="panel">  
-                                  <div class="panel-body">
-                                    <center>
-                                    <canvas class="pie-chart"></canvas>
-                                    </center>
-                                  </div>
-                                </div>
-                              </div>  
-                            <div id="chart3" class="tab-pane fade">
-                              <h3>Polar Area</h3>
-                              <div class="panel">
-                                <div class="panel-body" style="padding-bottom:50px;">
-                                    <canvas class="polar-chart"></canvas>
-                                </div>
-                              </div>  
-                            </div>
-                            <div id="chart4" class="tab-pane fade">
+                            <div id="chart4" class="tab-pane fade in active">
                               <h3>Line</h3>
                               <div class="panel" >
                                 <div class="panel-body">
@@ -193,22 +161,7 @@
                         </script>            
                                              
           </div>
-          
-          </div>
-          <div id="content">
-              <div class="col-md-8 padding-0" style="margin-top:20px;">
-                
-                    <div>
-                        <center>
-                            <form action="index_map22.html">
-                              <input type="submit" value="Go to comparison" />
-                          </form>
-                        </center>
-                    </div>
-                
-              </div>
-          </div>
-          
+    		  </div>
           <!-- end: content -->
 
 
@@ -733,177 +686,40 @@
      <script type="text/javascript">
       (function(jQuery){
 
-        var doughnutData = [
+        window.onload = function(){
+            var lineChartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
                 {
-                    value: 100,
-                    color:"#4ED18F",
-                    highlight: "#15BA67",
-                    label: "Alfa"
+                    label: "My First dataset",
+                    fillColor: "rgba(21,186,103,0.5)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56, 55, 40]
                 },
                 {
-                    value: 250,
-                    color: "#15BA67",
-                    highlight: "#15BA67",
-                    label: "Beta"
-                },
-                {
-                    value: 100,
-                    color: "#5BAABF",
-                    highlight: "#15BA67",
-                    label: "Gamma"
-                },
-                {
-                    value: 40,
-                    color: "#94D7E9",
-                    highlight: "#15BA67",
-                    label: "Peta"
-                },
-                {
-                    value: 120,
-                    color: "#BBE0E9",
-                    highlight: "#15BA67",
-                    label: "X"
+                    label: "My Second dataset",
+                    fillColor: "rgba(21,113,186,0.5)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
                 }
+            ]
+          };
 
-            ];
-
-             window.onload = function(){
-
-              var ctx = $(".doughnut-chart")[0].getContext("2d");
-                window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
-                    responsive : true,
-                    showTooltips: true
-                });       
-            };
-
-          $('#tab1').on('shown.bs.tab', function (e) {
-          var doughnutData = [
-                {
-                    value: 100,
-                    color:"#4ED18F",
-                    highlight: "#15BA67",
-                    label: "Alfa"
-                },
-                {
-                    value: 250,
-                    color: "#15BA67",
-                    highlight: "#15BA67",
-                    label: "Beta"
-                },
-                {
-                    value: 100,
-                    color: "#5BAABF",
-                    highlight: "#15BA67",
-                    label: "Gamma"
-                },
-                {
-                    value: 40,
-                    color: "#94D7E9",
-                    highlight: "#15BA67",
-                    label: "Peta"
-                },
-                {
-                    value: 120,
-                    color: "#BBE0E9",
-                    highlight: "#15BA67",
-                    label: "X"
-                }
-
-            ];
-             
-          var ctx = $(".doughnut-chart")[0].getContext("2d");
-                window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+          var ctx3 = $(".line-chart")[0].getContext("2d");
+                window.myLine = new Chart(ctx3).Line(lineChartData, {
                     responsive : true,
                     showTooltips: true
                 });
-          
-        });
-
-
-        $('#tab2').on('shown.bs.tab', function (e) {
-          var doughnutData = [
-                {
-                    value: 100,
-                    color:"#4ED18F",
-                    highlight: "#15BA67",
-                    label: "Alfa"
-                },
-                {
-                    value: 250,
-                    color: "#15BA67",
-                    highlight: "#15BA67",
-                    label: "Beta"
-                },
-                {
-                    value: 100,
-                    color: "#5BAABF",
-                    highlight: "#15BA67",
-                    label: "Gamma"
-                },
-                {
-                    value: 40,
-                    color: "#94D7E9",
-                    highlight: "#15BA67",
-                    label: "Peta"
-                },
-                {
-                    value: 120,
-                    color: "#BBE0E9",
-                    highlight: "#15BA67",
-                    label: "X"
-                }
-
-            ];
-             
-          var ctx2 = $(".pie-chart")[0].getContext("2d");
-                window.myPie = new Chart(ctx2).Pie(doughnutData, {
-                    responsive : true,
-                    showTooltips: true
-                });
-          
-        });
-
-        $('#tab3').on('shown.bs.tab', function (e) {
-          var doughnutData = [
-                {
-                    value: 100,
-                    color:"#4ED18F",
-                    highlight: "#15BA67",
-                    label: "Alfa"
-                },
-                {
-                    value: 250,
-                    color: "#15BA67",
-                    highlight: "#15BA67",
-                    label: "Beta"
-                },
-                {
-                    value: 100,
-                    color: "#5BAABF",
-                    highlight: "#15BA67",
-                    label: "Gamma"
-                },
-                {
-                    value: 40,
-                    color: "#94D7E9",
-                    highlight: "#15BA67",
-                    label: "Peta"
-                },
-                {
-                    value: 120,
-                    color: "#BBE0E9",
-                    highlight: "#15BA67",
-                    label: "X"
-                }
-
-          ];
-
-          var ctx6 = $(".polar-chart")[0].getContext("2d");
-                window.myPolar = new Chart(ctx6).PolarArea(doughnutData, {
-                    responsive : true,
-                    showTooltips: true
-                });
-        });
+        }
+        
 
         $('#tab4').on('shown.bs.tab', function (e) {
           var lineChartData = {
@@ -918,6 +734,16 @@
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
                     data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(21,113,186,0.5)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
                 }
             ]
           };
@@ -930,6 +756,8 @@
           
         });
 
+        
+
         $('#tab5').on('shown.bs.tab', function (e) {
           var barData = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -941,6 +769,14 @@
                     highlightFill: "rgba(220,220,220,0.75)",
                     highlightStroke: "rgba(220,220,220,1)",
                     data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(21,113,186,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
                 }
             ]
           };
@@ -965,6 +801,16 @@
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
                     data: [65, 59, 90, 81, 56, 55, 40]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(21,113,186,0.5)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 96, 27, 100]
                 }
             ]
           };
