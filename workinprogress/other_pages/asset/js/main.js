@@ -291,8 +291,8 @@
     $("#left-menu ul li a").ripple();
     $(".ripple div").ripple();
     $("#carousel-example3").carouselAnimate();
-    $("#left-menu .sub-left-menu").niceScroll();
-     $(".sub-mimin-mobile-menu-list").niceScroll({
+    //$("#left-menu .sub-left-menu").niceScroll();
+     /*$(".sub-mimin-mobile-menu-list").niceScroll({
             touchbehavior:true,
             cursorcolor:"#FF00FF",
             cursoropacitymax:0.6,
@@ -300,7 +300,7 @@
             usetransition:true,
             hwacceleration:true,
             autohidemode:"hidden"
-        });
+        });*/
 
     $(".fileupload-v1-btn").on("click",function(){
       var wrapper = $(this).parent("span").parent("div");
