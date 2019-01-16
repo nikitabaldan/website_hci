@@ -656,6 +656,12 @@
   
   // Set projection
   chart.projection = new am4maps.projections.Miller();
+
+  chart.homeZoomLevel = 5;
+chart.homeGeoPoint = {
+  latitude: 45,
+  longitude: 8
+};
   
   // Create map polygon series
   var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
@@ -700,9 +706,10 @@
   imageSeriesTemplate.background.fill = "#fff";
   imageSeriesTemplate.setStateOnChildren = true;
   imageSeriesTemplate.states.create("hover");
+  
   imageSeriesTemplate.events.on("hit", function(event){
-      window.location.href = "index.html";
-  });
+    window.location.href = "index.html";
+  },this);
   
   
   imageSeries.data = [{

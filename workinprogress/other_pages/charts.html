@@ -16,6 +16,7 @@
       <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://cdn.plot.ly/plotly-1.32.0.min.js"></script>
 	<link href="asset/css/style.css" rel="stylesheet">
 	<!-- end: Css -->
 
@@ -122,6 +123,7 @@
                             <li><a data-toggle="tab" id="tab4" href="#chart4">Line Chart</a></li>
                             <li><a data-toggle="tab" id="tab5" href="#chart5">Bar chart</a></li>
                             <li><a data-toggle="tab" id="tab6" href="#chart6">Radar chart</a></li>
+                            <li><a data-toogle="tab" id="tab7" href="#chart7">Violin chart</a></li>
                           </ul>
                         
                           <div class="tab-content">
@@ -181,6 +183,14 @@
                                         </div>
                                     </div>  
                                   </div>
+                            <div id="chart7" class="tab-pane fade">
+                                    <h3>Violin chart</h3>
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div id="graph"></div>
+                                      </div>
+                                    </div>
+                                </div>
                           </div>
                         </div>
                         
@@ -738,34 +748,34 @@
                     value: 100,
                     color:"#4ED18F",
                     highlight: "#15BA67",
-                    label: "Alfa"
+                    label: "Cement"
                 },
                 {
                     value: 250,
                     color: "#15BA67",
                     highlight: "#15BA67",
-                    label: "Beta"
+                    label: "Grass"
                 },
                 {
                     value: 100,
                     color: "#5BAABF",
                     highlight: "#15BA67",
-                    label: "Gamma"
+                    label: "Sand"
                 },
                 {
                     value: 40,
                     color: "#94D7E9",
                     highlight: "#15BA67",
-                    label: "Peta"
+                    label: "Clay"
                 },
                 {
                     value: 120,
                     color: "#BBE0E9",
                     highlight: "#15BA67",
-                    label: "X"
+                    label: "Mixed"
                 }
 
-            ];
+          ];
 
              window.onload = function(){
 
@@ -777,39 +787,39 @@
             };
 
           $('#tab1').on('shown.bs.tab', function (e) {
-          var doughnutData = [
+            var doughnutData = [
                 {
                     value: 100,
                     color:"#4ED18F",
                     highlight: "#15BA67",
-                    label: "Alfa"
+                    label: "Cement"
                 },
                 {
                     value: 250,
                     color: "#15BA67",
                     highlight: "#15BA67",
-                    label: "Beta"
+                    label: "Grass"
                 },
                 {
                     value: 100,
                     color: "#5BAABF",
                     highlight: "#15BA67",
-                    label: "Gamma"
+                    label: "Sand"
                 },
                 {
                     value: 40,
                     color: "#94D7E9",
                     highlight: "#15BA67",
-                    label: "Peta"
+                    label: "Clay"
                 },
                 {
                     value: 120,
                     color: "#BBE0E9",
                     highlight: "#15BA67",
-                    label: "X"
+                    label: "Mixed"
                 }
 
-            ];
+          ];
              
           var ctx = $(".doughnut-chart")[0].getContext("2d");
                 window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
@@ -826,34 +836,34 @@
                     value: 100,
                     color:"#4ED18F",
                     highlight: "#15BA67",
-                    label: "Alfa"
+                    label: "Cement"
                 },
                 {
                     value: 250,
                     color: "#15BA67",
                     highlight: "#15BA67",
-                    label: "Beta"
+                    label: "Grass"
                 },
                 {
                     value: 100,
                     color: "#5BAABF",
                     highlight: "#15BA67",
-                    label: "Gamma"
+                    label: "Sand"
                 },
                 {
                     value: 40,
                     color: "#94D7E9",
                     highlight: "#15BA67",
-                    label: "Peta"
+                    label: "Clay"
                 },
                 {
                     value: 120,
                     color: "#BBE0E9",
                     highlight: "#15BA67",
-                    label: "X"
+                    label: "Mixed"
                 }
 
-            ];
+          ];
              
           var ctx2 = $(".pie-chart")[0].getContext("2d");
                 window.myPie = new Chart(ctx2).Pie(doughnutData, {
@@ -869,31 +879,31 @@
                     value: 100,
                     color:"#4ED18F",
                     highlight: "#15BA67",
-                    label: "Alfa"
+                    label: "Cement"
                 },
                 {
                     value: 250,
                     color: "#15BA67",
                     highlight: "#15BA67",
-                    label: "Beta"
+                    label: "Grass"
                 },
                 {
                     value: 100,
                     color: "#5BAABF",
                     highlight: "#15BA67",
-                    label: "Gamma"
+                    label: "Sand"
                 },
                 {
                     value: 40,
                     color: "#94D7E9",
                     highlight: "#15BA67",
-                    label: "Peta"
+                    label: "Clay"
                 },
                 {
                     value: 120,
                     color: "#BBE0E9",
                     highlight: "#15BA67",
-                    label: "X"
+                    label: "Mixed"
                 }
 
           ];
@@ -976,7 +986,49 @@
                 });
         });
 
+        $('#tab7').on('shown.bs.tab', function (e) {
+          Plotly.purge("graph");
+          Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/violin_data.csv", function(err, rows){
+  
+            function unpack(rows, key) {
+            return rows.map(function(row) { return row[key]; });
+            }
 
+            var data = [{
+              type: 'violin',
+              //x: unpack(rows, 'day'),
+              y: unpack(rows, 'total_bill'),
+              points: 'none',
+              box: {
+                visible: true
+              },
+              line: {
+                color: 'green',
+              },
+              meanline: {
+                visible: true
+              },
+              transforms: [{
+                type: 'groupby',
+                //groups: unpack(rows, 'day'),
+                styles: [
+                    {target: 'Sun', value: {line: {color: 'blue'}}},
+                    
+                ]
+                }]
+            }]
+
+            var layout = {
+              title: "Multiple Traces Violin Plot",
+              yaxis: {
+                zeroline: false
+              }
+            }
+
+            Plotly.plot('graph', data, layout, {showSendToCloud: true});
+            
+            });
+        });
         })(jQuery);
      </script>
   <!-- end: Javascript -->
