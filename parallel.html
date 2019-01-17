@@ -1,0 +1,74 @@
+<html>
+        <head>
+                <meta charset="UTF-8">
+                <title>Title</title>
+                <script src="https://cdn.plot.ly/plotly-latest.min.js">   </script>
+              </head>
+              <body>
+              <div id="graphDiv"></div>
+              </body>
+</html>
+
+<script>
+    Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/parcoords_data.csv', function(err, rows){
+      
+      function unpack(rows, key) {
+        return rows.map(function(row) { 
+          return row[key]; 
+        });
+      }
+      
+      var data = [{
+        type: 'parcoords',
+        line: {
+          showscale: true,
+          reversescale: true,
+          colorscale: 'Jet',
+          cmin: -4000,
+          cmax: -100,
+          color: unpack(rows, 'colorVal')
+        },
+          
+        dimensions: [{
+          constraintrange: [100000, 150000],
+          range: [32000, 227900],
+          label: 'CO2',
+          values: unpack(rows, 'blockHeight')
+        }, {
+          range: [0, 700000],
+          label: 'Temperature',
+          values: unpack(rows, 'blockWidth')
+        }, {
+          range: [134, 3154],
+          label: 'Humidity',
+          visible: true,
+          values: unpack(rows, 'totalWeight')
+        }, {
+          range: [9, 19984],
+          label: 'Rain',
+          values: unpack(rows, 'assemblyPW')
+        }, {
+          range: [49000, 568000],
+          label: 'Pressure',
+          values: unpack(rows, 'HstW')
+        }, {
+          range: [-28000, 196430],
+          label: 'Height',
+          values: unpack(rows, 'minHW')
+        }, {
+           range: [98453, 501789],
+           label: 'Wind speed',
+           values: unpack(rows, 'minWD')
+        }, {
+          range: [1417, 107154],
+          label: 'Luminosity',
+          values: unpack(rows, 'rfBlock')
+        }]
+      }];
+      
+      Plotly.plot('graphDiv', data, {}, {showSendToCloud: true});
+      
+      });
+      
+      Resources
+</script>
