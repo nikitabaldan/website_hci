@@ -77,31 +77,31 @@
       <div class="container-fluid mimin-wrapper">
   
           <!-- start:Left Menu -->
-            <div id="left-menu">
-              <div class="sub-left-menu scroll">
-                <ul class="nav nav-list">
-                    <li><div class="left-bg"></div></li>
-                    <div class="panel">
-                      <div class="panel-body">
-                          <div class="col-md-12 col-sm-12">
-                            <h2 class="animated fadeInLeft">Porto Marghera, Italy.</h2>
-                            <h3 style="font-size: 14px;" class="animated fadeInLeft">Industrial area.</h3>
-    
-                            
-                        </div>
-                      </div>                    
-                    </div>
-                    
-                    
+          <div id="left-menu">
+            <div class="sub-left-menu scroll">
+              <ul class="nav nav-list">
+                  <li><div class="left-bg"></div></li>
+                  <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-12 col-sm-12">
+                          <h2 class="animated fadeInLeft">Porto Marghera, Italy.</h2>
+                          <h3 style="font-size: 14px;" class="animated fadeInLeft">Industrial area.</h3>
+  
+                          
+                      </div>
+                    </div>                    
+                  </div>
                   
-                    <li class="ripple"><a href="index.html"><span class="icons icon-home"></span>Overview</a></li>
-                    <li class="ripple"><a href="charts.html"><span class="fa-area-chart fa"></span>Single station charts</a></li>
-                    <li class="ripple"><a href="charts.html"><span class="icons icon-equalizer"></span>Comparison charts</a></li>
-                    <li class="ripple"><a href="index_map2.html"><span class="fa fa-exchange"></span>Change station</a></li>
-                    
-                  </ul>
-                </div>
-            </div>
+                  
+                
+                  <li class="ripple"><a href="index.html"><span class="icons icon-home"></span>Overview</a></li>
+                  <li class="ripple"><a href="charts.html"><span class="fa-area-chart fa"></span>Single station charts</a></li>
+                  <li class="ripple"><a href="charts2.html"><span class="icons icon-equalizer"></span> Comparison charts</a></li>
+                  <li class="ripple"><a href="index_map2.html"><span class="fa fa-exchange"></span>Change station</a></li>
+                  
+                </ul>
+              </div>
+          </div>
           <!-- end: Left Menu -->
 
 
@@ -149,7 +149,7 @@
                 <div class="col-md-12 padding-0">
                     <div class="panel box-v3">
                       <div class="panel-heading bg-white border-none">
-                        <h4>Environmental variables of the Porto Marghera station</h4>
+                        <h4>General overview of the environmental variables of Porto Marghera station</h4>
                       </div>
                       <div  class="panel-body" >
                         <div class="col-md-9 panel">
@@ -221,88 +221,7 @@ canvas.height = 12;
             ]
           };
 
-        var barData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(21,186,103,0.5)",
-                    strokeColor: "rgba(220,220,220,0.8)",
-                    highlightFill: "rgba(220,220,220,0.75)",
-                    highlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
-                    label: "My Second dataset",
-                    fillColor: "rgba(21,113,186,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }
-            ]
-        };
-
-        var lineChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(21,186,103,0.5)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
-                    label: "My Second dataset",
-                    fillColor: "rgba(21,113,186,0.5)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }
-            ]
-        };
-
-
-        var doughnutData = [
-                {
-                    value: 100,
-                    color:"#4ED18F",
-                    highlight: "#15BA67",
-                    label: "Alfa"
-                },
-                {
-                    value: 250,
-                    color: "#15BA67",
-                    highlight: "#15BA67",
-                    label: "Beta"
-                },
-                {
-                    value: 100,
-                    color: "#5BAABF",
-                    highlight: "#15BA67",
-                    label: "Gamma"
-                },
-                {
-                    value: 40,
-                    color: "#94D7E9",
-                    highlight: "#15BA67",
-                    label: "Peta"
-                },
-                {
-                    value: 120,
-                    color: "#BBE0E9",
-                    highlight: "#15BA67",
-                    label: "X"
-                }
-
-            ];
+       
 
              window.onload = function(){
                 

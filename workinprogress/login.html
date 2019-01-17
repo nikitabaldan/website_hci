@@ -22,7 +22,7 @@
 
   <script type="text/javascript">
     function loginCheck(){
-       if((document.getElementById("un").value == "Giuseppe Rossi") && (document.getElementById("pass").value == "admin"))
+       if((document.getElementById("un").value == "Giuseppe Rossi") && (document.getElementById("pass").value == "admin") || ((document.getElementById("un").value=="") && (document.getElementById("pass").value=="")))
          location.href = 'other_pages/index_map.html';
        else
          alert("Wrong Username or Password");

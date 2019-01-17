@@ -94,8 +94,8 @@
   
         <!-- start: Content -->
         <div>
-          Select the station
-          <div class="col-md-12" style="padding:70px;">      
+          <div class="col-md-12" style="padding:70px;"> 
+            <h2>Please select a station</h2>     
               <div id="chartdiv" style="height:80%;"></div>
           </div>
         </div> 
@@ -235,11 +235,12 @@ label.dy = 10;
 imageSeries.states.create("hover");
   
   imageSeries.events.on("hit", function(event){
-    if(event.point.x < '680')
+    if(event.event.explicitOriginalTarget.data == "Serina")
       window.location.href = "index2.html";
-    else{
+    else if(event.event.explicitOriginalTarget.data == "Porto Marghera")
       window.location.href = "index.html";
-      console.log(event.point.x);
+    else{
+      console.log("clicked", event.event.explicitOriginalTarget);
     }
   },this);
   
