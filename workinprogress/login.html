@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 
+  <!-- Account details UN Giuseppe Rossi PASSWORD = ADMIN-->
+
   <meta charset="utf-8">
   <meta name="keyword" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +19,15 @@
   <link rel="stylesheet" type="text/css" href="other_pages/asset/css/plugins/icheck/skins/flat/aero.css"/>
   <link href="other_pages/asset/css/style.css" rel="stylesheet">
   <!-- end: Css -->
+
+  <script type="text/javascript">
+    function loginCheck(){
+       if((document.getElementById("un").value == "Giuseppe Rossi") && (document.getElementById("pass").value == "admin"))
+         location.href = 'other_pages/index_map.html';
+       else
+         alert("Wrong Username or Password");
+    }
+    </script>
 
   <link rel="shortcut icon" href="other_pages/asset/img/logomi.png">
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,13 +50,13 @@
                   <p class="element-name">Login</p>
 
                   <i class="icons icon-arrow-down"></i>
-                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                    <input type="text" class="form-text" required>
-                    <span class="bar"></span>
-                    <label>Username</label>
+                  <div class="form-group form-animate-text"  style="margin-top:40px !important;">
+                    <input id="un"  type="text" class="form-text"  required>
+                    <span class="bar" ></span>
+                    <label >Username</label>
                   </div>
-                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                    <input type="password" class="form-text" required>
+                  <div class="form-group form-animate-text"  style="margin-top:40px !important;">
+                    <input id="pass"  type="password" class="form-text"  required>
                     <span class="bar"></span>
                     <label>Password</label>
                   </div>
@@ -53,7 +64,7 @@
                   <input type="checkbox" class="icheck pull-left" name="checkbox1"/> Remember me
                   </label>
                   <form action="other_pages/index_map.html">
-                    <input type="button" class="btn col-md-12" value="Sign in" onclick="location.href = 'other_pages/index_map.html'" />
+                    <input type="button" class="btn col-md-12" value="Sign in" onclick="loginCheck()"/>
                   </form>
               </div>
                 <div class="text-center" style="padding:5px;">
@@ -81,6 +92,7 @@
         });
        });
      </script>
+     
      <!-- end: Javascript -->
    </body>
    </html>
