@@ -587,7 +587,7 @@
           }, 
           "data": [
               {
-                  "name": "CO2", 
+                  "name": "CO2(PPM)", 
                   "ysrc": "NikitaBaldan:5:e34a7c", 
                   "xsrc": "NikitaBaldan:5:dfae14", 
                   "mode": "lines", 
@@ -1007,10 +1007,10 @@
             var data = [{
               type: 'splom',
               dimensions: [
-                {label:'CO2', values:unpack(rows,'sepal length')},
-                {label:'Luminosity', values:unpack(rows,'sepal width')},
-                {label:'Wind speed', values:unpack(rows,'petal length')},
-                {label:'Humidity', values:unpack(rows,'petal width')}
+                {label:'CO2(PPM)', values:unpack(rows,'sepal length')},
+                {label:'Luminosity(klx)', values:unpack(rows,'sepal width')},
+                {label:'Wind speed(km/h)', values:unpack(rows,'petal length')},
+                {label:'Humidity(%)', values:unpack(rows,'petal width')}
               ],
               text: unpack(rows, 'class'),
               marker: {
