@@ -235,13 +235,7 @@ label.dy = 10;
 imageSeries.states.create("hover");
   
   imageSeries.events.on("hit", function(event){
-    if(event.event.explicitOriginalTarget.data == "Serina")
-      window.location.href = "index2.html";
-    else if(event.event.explicitOriginalTarget.data == "Porto Marghera")
       window.location.href = "index.html";
-    else{
-      console.log("clicked", event.event.explicitOriginalTarget);
-    }
   },this);
   
   
